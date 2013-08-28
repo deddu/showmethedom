@@ -12,15 +12,18 @@ angular.module('showmethedomApp')
 	  var treeData = jqDOMtoJSON(jQuery(jQuery.parseHTML(xml)).get()[0].parentNode);
 
       // Create a svg canvas
-      var vis = d3.select(" svg#result")
-      .attr("height", 1000)
-      .attr("width", 1000)
-      .append("svg:g")
-	  .attr("transform", "translate(40, 0)"); // shift everything to the right
+      var height = 1000,
+          width = 400;
+
+      var vis = d3.select("svg#result")
+                  .attr("height", height*1.5)
+                  .attr("width", width*2)
+                  .append("svg:g")
+	              .attr("transform", "translate(200, 0)"); // shift everything to the right
 
       // Create a tree "canvas"
       var tree = d3.layout.tree()
-      .size([900,200]);
+                   .size([height,width]);
 
       var diagonal = d3.svg.diagonal()
 	  // change x and y (for the left to right tree)

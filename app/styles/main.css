@@ -25,5 +25,9 @@ body {
   stroke: #ccc;
   stroke-width: 1px;
 }
-
+.d3output {
+  margin-left:auto;
+  margin-right:auto;
+  width: 70%;
+}
 h2 {font-family: 'Supermercado One', cursive;}
