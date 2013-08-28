@@ -26,8 +26,8 @@ angular.module('showmethedomApp')
                    .size([height,width]);
 
       var diagonal = d3.svg.diagonal()
-	  // change x and y (for the left to right tree)
-	  .projection(function(d) { return [d.y, d.x]; });
+	                   // change x and y (for the left to right tree)
+	                   .projection(function(d) { return [d.y, d.x]; });
 
       // Preparing the data for the tree layout, convert data into an array of nodes
       var nodes = tree.nodes(treeData);
@@ -35,10 +35,10 @@ angular.module('showmethedomApp')
       var links = tree.links(nodes);
 
       var link = vis.selectAll("pathlink")
-      .data(links)
-      .enter().append("svg:path")
-      .attr("class", "link")
-      .attr("d", diagonal)
+					  .data(links)
+					  .enter().append("svg:path")
+					  .attr("class", "link")
+					  .attr("d", diagonal)
 
       var node = vis.selectAll("g.node")
       .data(nodes)
@@ -56,10 +56,11 @@ angular.module('showmethedomApp')
       .attr("text-anchor", function(d) { return d.children ? "end" : "start"; })
       .text(function(d) { return d.name; })
   };
+
   $scope.submit = function () {
-  	$http.get(this.mainURL).success(function (data) {
+  	$http.get("/geturl?url="+this.mainURL).success(function (data) {
   		$scope.d3(data);
   	});
-  };
-  $scope.d3stuff = "<h1>HEEH</h1>"
+  }
+  
 });
