@@ -17,7 +17,7 @@ angular.module('showmethedomApp')
       d3.select("#d3stuff").select('svg').remove()
       var vis = d3.select("#d3stuff")
                   .append('svg')
-                  .attr("height", height*1.5)
+                  .attr("height", height)
                   .attr("width", width*2)
                   .append("svg:g")
 	              .attr("transform", "translate(200, 0)"); // shift everything to the right

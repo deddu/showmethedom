@@ -1,25 +1,32 @@
-@import url(http://fonts.googleapis.com/css?family=Antic+Slab|Supermercado+One|Trykker);
+@import url(http://fonts.googleapis.com/css?family=Antic+Slab|Trykker|Yanone+Kaffeesatz:200);
 
 body {
     background: #fafafa;
-    font-family: 'Trykker', serif;
+    
     color: #333;
 }
-
+/*main.html view styles*/
 .hero-unit {   
     line-height: 30px;
     background-color: #eee;
     border-radius: 6px;
     padding: 2%;
-    
+    font-family: 'Helvetica Neue', sans-serif;
 }
 .hero-unit h1 {
     font-family: 'Antic Slab', serif;
-    font-size: 60px;
-    line-height: 1;
-    letter-spacing: -1px;
+    font-size: 5em;
+    /*line-height: 1;*/
+    /*letter-spacing: -1px;*/
+    text-align: center;
 }
-
+ p.footer {
+    font-family: 'Yanone Kaffeesatz', sans-serif;
+    line-height: 1.5;
+    color: #afafaf;
+    text-align: center;
+}
+/*D3 styles*/
 .link {
   fill: none;
   stroke: #ccc;
@@ -29,5 +36,5 @@ body {
   margin-left:auto;
   margin-right:auto;
   width: 70%;
+  font-family: 'Yanone Kaffeesatz', sans-serif;
 }
-h2 {font-family: 'Supermercado One', cursive;}
