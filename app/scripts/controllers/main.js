@@ -2,7 +2,7 @@
 
 angular.module('showmethedomApp')
 	.controller('MainCtrl', function($scope, $http) {
-	$scope.d3 = function(treeData) {
+	$scope.d3update = function() {
 		// Create a svg canvas
 		var height = 1000,
 			width = 400;
@@ -19,17 +19,17 @@ angular.module('showmethedomApp')
 			.attr("transform", "translate(200, 0)"); // shift everything to the right
 
 		// Create a tree "canvas"
-		var tree = d3.layout.tree()
+		var tree = d3.layout.cluster()
 			.size([height, width]);
 
 		var diagonal = d3.svg.diagonal()
-		// change x and y (for the left to right tree)
-		.projection(function(d) {
-			return [d.y, d.x];
-		});
+		//.projection(function(d) { return [d.y, d.x / 180 * Math.PI]; });
+    // change x and y (for the left to right tree)
+    .projection(function(d) { return [d.y, d.x]; });
+    
 
 		// Preparing the data for the tree layout, convert data into an array of nodes
-		var nodes = tree.nodes(treeData);
+		var nodes = tree.nodes($scope.treeData);
 		// Create an array with all the links
 		var links = tree.links(nodes);
 
@@ -44,12 +44,22 @@ angular.module('showmethedomApp')
 			.data(nodes)
 			.enter()
 			.append("svg:g")
+      .on("click", function (d) {
+        if (d.children) {
+           d._children = d.children;
+           d.children = null;
+          } else {
+           d.children = d._children;
+           d._children = null;
+        }
+        $scope.d3update();})
 			.attr("transform", function(d) {
 			return "translate(" + d.y + "," + d.x + ")";
 		})
 
 		// Add the dot at every node
 		node.append("svg:circle")
+      .attr("class", function(d) { return d._children ? "node collapsed" : d.children ? "node branch" : "node leaf"; })
 			.attr("r", 3.5);
 
 		// place the name atribute left or right depending if children
@@ -65,11 +75,11 @@ angular.module('showmethedomApp')
 			return d.name;
 		})
 	};
-
 	$scope.submit = function() {
 		$http.get("/gettree?url=" + this.mainURL)
 			.success(function(data) {
-			$scope.d3(data);
+      $scope.treeData = data;
+			$scope.d3update();
 		});
 	}
 

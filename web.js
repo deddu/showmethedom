@@ -10,18 +10,20 @@ app.use("/app", express.static(__dirname + '/app'));
 
 // FIXME: Make jquery extension?
 var jqDOMtoJSON = function($dom) {
-	return {
-		name: $dom.nodeName,
-		children: $.map($dom.children, jqDOMtoJSON)
-	};
+	var result = {};
+	result.name = $dom.nodeName;
+	if ($dom.children.length)
+		result.children = $.map($dom.children, jqDOMtoJSON);
+	return result;
 };
 
 app.get('/gettree', function(request, response) {
 	console.log("Trying to get " + request.query.url);
 	$.get(request.query.url, function(data) {
+		var $dom = {nodeName: "#document", 
+		            children: $($.parseHTML(data)).get()[0].parentNode.children};
 		// FIXME: Handle exceptions gracefully
-		var treeData = jqDOMtoJSON($($.parseHTML(data))
-			.get()[0].parentNode);
+		var treeData = jqDOMtoJSON($dom);
 		response.writeHead(200, {
 			"Content-Type": "application/json"
 		});

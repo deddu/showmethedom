@@ -32,6 +32,18 @@ body {
   stroke: #ccc;
   stroke-width: 1px;
 }
+.node.collapsed{
+    fill: black;
+    stroke: black;
+}
+.node.branch{
+    fill: lightgray;
+    stroke: lightgray;
+}
+.node.leaf{
+    fill: white;
+    stroke: black;
+}
 .d3output {
   margin-left:auto;
   margin-right:auto;
