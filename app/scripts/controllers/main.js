@@ -14,8 +14,9 @@ angular.module('showmethedomApp')
       // Create a svg canvas
       var height = 1000,
           width = 400;
-
-      var vis = d3.select("svg#result")
+      d3.select("#d3stuff").select('svg').remove()
+      var vis = d3.select("#d3stuff")
+                  .append('svg')
                   .attr("height", height*1.5)
                   .attr("width", width*2)
                   .append("svg:g")
