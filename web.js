@@ -17,7 +17,9 @@ var jqDOMtoJSON = function($dom) {
 	var result = {};
 
 	var classes = maybe('.', $($dom)
-		.attr('class')).split(' ').join('.');
+		.attr('class'))
+		.split(' ')
+		.join('.');
 	var id = maybe('#', $($dom)
 		.attr('id'));
 	result.name = $dom.nodeName + classes + id;
