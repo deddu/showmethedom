@@ -2,8 +2,11 @@
 
 body {
     background: #fafafa;
-    
+
     color: #333;
+}
+.logo{
+    float: left;
 }
 /*main.html view styles*/
 .hero-unit {   
@@ -18,13 +21,15 @@ body {
     font-size: 5em;
     /*line-height: 1;*/
     /*letter-spacing: -1px;*/
-    text-align: center;
+    /*text-align: center;*/
 }
  p.footer {
     font-family: 'Yanone Kaffeesatz', sans-serif;
     line-height: 1.5;
     color: #afafaf;
     text-align: center;
+    /*background: url("../images/yao-cheng-3.jpg");
+    background-size:  cover;*/
 }
 /*D3 styles*/
 .link {
