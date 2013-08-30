@@ -1,16 +1,11 @@
 'use strict';
 
-angular.module('showmethedomApp', [])
-  .config(function ($routeProvider,$httpProvider) {
-    $httpProvider.defaults.useXDomain = true;
-    delete $httpProvider.defaults.headers.common['X-Requested-With'];
+angular.module('showmethedomApp', []).config(function ($routeProvider) {
     // Set up router
-    $routeProvider
-      .when('/', {
+    $routeProvider.when('/', {
         templateUrl: 'views/main.html',
         controller: 'MainCtrl'
-      })
-      .otherwise({
+      }).otherwise({
         redirectTo: '/'
       });
   });
