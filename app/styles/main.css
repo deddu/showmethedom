@@ -1,4 +1,4 @@
-@import url(http://fonts.googleapis.com/css?family=Antic+Slab|Trykker|Yanone+Kaffeesatz:200);
+@import url(http://fonts.googleapis.com/css?family=Trykker|Yanone+Kaffeesatz:200);
 
 body {
     background: #fafafa;
@@ -14,22 +14,19 @@ body {
     background-color: #eee;
     border-radius: 6px;
     padding: 2%;
-    font-family: 'Helvetica Neue', sans-serif;
 }
 .hero-unit h1 {
-    font-family: 'Antic Slab', serif;
+    font-family: 'Trykker', serif;
     font-size: 5em;
-    /*line-height: 1;*/
-    /*letter-spacing: -1px;*/
-    /*text-align: center;*/
+}
+.hero-unit p {
+    font-family: 'Yanone Kaffeesatz', sans-serif;
 }
  p.footer {
     font-family: 'Yanone Kaffeesatz', sans-serif;
     line-height: 1.5;
     color: #afafaf;
     text-align: center;
-    /*background: url("../images/yao-cheng-3.jpg");
-    background-size:  cover;*/
 }
 /*D3 styles*/
 .link {

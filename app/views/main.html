@@ -1,11 +1,14 @@
 <div class="hero-unit">
-	<img src="./images/logo.svg" alt="" width="200px" class="logo"/><h1>DOM tree</h1> 
+	<!--<img src="./images/logo.svg" alt="" width="200px" class="logo"/>-->
+    <h1>dom.tree</h1>
+    <p class="lead">Show me the DOM of:</p>
 	<form name="URLForm" class="form-inline" ng-submit="submit()">
+
 		<div class="form-group col-sm-10">
-			<input type="url" class="form-control" placeholder="URL" ng-model="mainURL"/>
+			<input  type="url" class="form-control" placeholder="URL" ng-model="mainURL" required/>
 		</div>
 		<div class="form-group">
-			<button type="submit" class="btn btn-primary">Go!</button>
+			<button type="submit" class="btn btn-primary" ng-disabled="!URLForm.$valid">Go!</button>
 		</div>
 	</form>	
 </div>
@@ -13,5 +16,10 @@
 <div id="d3stuff" class="d3output"><svg id="result"/></div>
 
 <div class="row">
-	<p class="footer"> <a href="mailto:cadedduan@gmail.com">Andrea Cadeddu</a> and <a href="mailto:matthew.wampler.doty@gmail.com">Matthew Wampler-Doty</a> 2013</p>
+	<p class="footer">
+        <a href="mailto:cadedduan@gmail.com">Andrea Cadeddu</a>
+        and
+        <a href="mailto:matthew.wampler.doty@gmail.com">Matthew Wampler-Doty</a>
+        2013
+    </p>
 </div>
