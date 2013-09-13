@@ -6,11 +6,11 @@ angular.module('showmethedomApp').controller('MainCtrl', function($scope, $http)
 		var height = 1000,
 			width = 400;
 
-		d3.select('#d3stuff')
-			.select('svg')
+		d3.select('.d3output')
+			.selectAll('svg')
 			.remove();
 
-		var vis = (d3.select('#d3stuff')
+		var vis = (d3.select('.d3output')
 			.append('svg')
 			.attr('height', height)
 			.attr('width', width * 2)
