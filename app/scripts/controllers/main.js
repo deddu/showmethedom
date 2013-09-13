@@ -1,10 +1,14 @@
 'use strict';
+var app = angular.module('domtree.controllers',['domtree.directives','domtree.services']);
 
-angular.module('showmethedomApp').controller('MainCtrl', function($scope, $http) {
-	$scope.d3update = function() {
+    app.controller('MainCtrl', function($scope, $location, Tree) {
+
+        $scope.d3update = function() {
+
 		// Create a svg canvas
 		var height = 1000,
 			width = 400;
+
 
 		d3.select('.d3output')
 			.selectAll('svg')
@@ -31,6 +35,7 @@ angular.module('showmethedomApp').controller('MainCtrl', function($scope, $http)
 
 		// Preparing the data for the tree layout, convert data into an array of nodes
 		var nodes = tree.nodes($scope.treeData);
+        console.log(nodes[0]);
 		// Create an array with all the links
 		var links = tree.links(nodes);
 
@@ -79,13 +84,15 @@ angular.module('showmethedomApp').controller('MainCtrl', function($scope, $http)
 			return d.name;
 		});
 	};
-	
+
+
+
 	$scope.submit = function() {
-		$http.get('/gettree?url=' + this.mainURL)
-			.success(function(data) {
-			$scope.treeData = data;
-			$scope.d3update();
-		});
+       //$location.path("/#/gettree=?"+$scope.mainURL);
+       var tmp =Tree.get({'mainURL':$scope.mainURL}, function(data){
+           $scope.treeData=data
+           $scope.d3update();
+       })
 	};
 
 });

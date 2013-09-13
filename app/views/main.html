@@ -5,7 +5,7 @@
 	<form name="URLForm" class="form-inline" ng-submit="submit()">
 
 		<div class="form-group col-sm-10">
-			<input  type="url" class="form-control" placeholder="URL" ng-model="mainURL" required/>
+			<input  type="url" class="form-control" placeholder="URL" ng-model="mainURL" focus required/>
 		</div>
 		<div class="form-group">
 			<button type="submit" class="btn btn-primary" ng-disabled="!URLForm.$valid">Go!</button>
@@ -13,6 +13,7 @@
 	</form>	
 </div>
 
+<!--<div loadingbar>Loading</div>-->
 <div id="d3stuff" class="d3output"></div>
 
 <div class="row">
