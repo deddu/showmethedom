@@ -69,9 +69,9 @@ app.get('/', function(request, response) {
 	});
 });
 
-
+var host = '0.0.0.0';
 var port = process.env.PORT || 5000;
-app.listen(port, function() {
+app.listen(port, host, function() {
 	'use strict';
 	console.log('Listening on http://localhost:' + port);
 });
